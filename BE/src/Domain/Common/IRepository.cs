@@ -1,6 +1,10 @@
 namespace Domain.Common;
 
-public interface IRepository<T> where T : class, IAggregateRoot
+public interface IAggregateRoot
+{
+}
+
+public interface IRepository<T> where T : class
 {
     Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
     Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default);
