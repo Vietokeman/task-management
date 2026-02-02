@@ -15,8 +15,6 @@ TASK_MANAGEMENT_SYSTEM_STEMHOUSE/
 │
 ├── BE/                           # Backend - .NET Clean Architecture
 │   ├── TaskManagement.sln        # Visual Studio solution
-│   ├── docker-compose.yml        # Development environment
-│   ├── Dockerfile                # Container build
 │   ├── README.md                 # Backend documentation
 │   └── src/
 │       ├── Domain/               # Core business logic
@@ -128,11 +126,6 @@ npm start
 2. **Testability**: Business rules can be tested without external elements
 3. **Dependency Inversion**: High-level modules don't depend on low-level modules
 
-### CQRS Pattern (Backend)
-
-- **Commands**: Write operations that modify state
-- **Queries**: Read operations that return data
-- **Handlers**: Execute commands/queries via MediatR
 
 ### Feature-Based Structure (Frontend)
 
@@ -140,8 +133,3 @@ npm start
 - Lazy-loaded for performance
 - Clear boundaries between features
 
----
-
-## 📄 License
-
-This is an architectural template for educational and reference purposes.
