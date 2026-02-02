@@ -1,0 +1,21 @@
+// ================================================
+// Infrastructure Layer - Entity Configurations
+// ================================================
+// PURPOSE:
+// EF Core entity type configurations.
+// Fluent API configurations for entities.
+// One configuration class per entity.
+//
+// EXAMPLE:
+// public class OrderConfiguration : IEntityTypeConfiguration<Order>
+// {
+//     public void Configure(EntityTypeBuilder<Order> builder)
+//     {
+//         builder.HasKey(o => o.Id);
+//         builder.Property(o => o.CustomerName).IsRequired().HasMaxLength(200);
+//         // ... more configurations
+//     }
+// }
+// ================================================
+
+// Create entity configuration classes in this folder.

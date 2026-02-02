@@ -1,0 +1,29 @@
+// ================================================
+// Application Layer - Features Folder
+// ================================================
+// PURPOSE:
+// Organize use cases by feature/domain context.
+// Each feature has Commands, Queries, DTOs subfolders.
+// Follows vertical slice architecture within CQRS.
+//
+// STRUCTURE PER FEATURE:
+// Features/
+//   [FeatureName]/
+//     Commands/
+//       [Verb][Entity]/
+//         [Verb][Entity]Command.cs
+//         [Verb][Entity]CommandHandler.cs
+//         [Verb][Entity]CommandValidator.cs
+//     Queries/
+//       Get[Entity]/
+//         Get[Entity]Query.cs
+//         Get[Entity]QueryHandler.cs
+//       Get[Entities]/
+//         Get[Entities]Query.cs
+//         Get[Entities]QueryHandler.cs
+//     DTOs/
+//       [Entity]Dto.cs
+//       [Entity]DetailDto.cs
+// ================================================
+
+// Create feature folders following the structure above.

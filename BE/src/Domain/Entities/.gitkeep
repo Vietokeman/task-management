@@ -1,0 +1,11 @@
+// ================================================
+// Domain Layer - Entities Folder
+// ================================================
+// PURPOSE:
+// Contains all domain entities (Aggregate Roots and Child Entities).
+// Entities encapsulate business logic and state.
+// Use private setters and validate in constructors/methods.
+// ================================================
+
+// Create entity classes in this folder following DDD patterns.
+// Example: Order.cs, Product.cs, Customer.cs

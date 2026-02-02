@@ -1,0 +1,11 @@
+// ================================================
+// Infrastructure Layer - External Services
+// ================================================
+// PURPOSE:
+// Integrations with external APIs and services.
+// Payment gateways, third-party APIs, file storage.
+// Each service in its own subfolder.
+// ================================================
+
+// Create external service integrations in subfolders.
+// Example: Storage/, Payment/, Notification/

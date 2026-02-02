@@ -1,0 +1,14 @@
+// ================================================
+// Feature Template - Presentation Layer
+// ================================================
+// PURPOSE:
+// UI components, pages, containers.
+// Smart and dumb component pattern.
+// Angular components, templates, styles.
+//
+// CONTENTS:
+// - pages/: Route-level container components
+// - components/: Feature-specific UI components
+// ================================================
+
+// Create UI components in this folder.

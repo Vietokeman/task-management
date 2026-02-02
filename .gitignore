@@ -1,0 +1,213 @@
+# ================================================
+# Task Management System - Combined .gitignore
+# .NET + Angular Projects
+# ================================================
+
+# =====================================
+# .NET / C# / ASP.NET Core
+# =====================================
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]uild/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+## Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.rsuser
+*.csproj.user
+*.vbproj.user
+*.fsproj.user
+
+## Rider IDE
+.idea/
+*.sln.iml
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+NugetPackages/
+packages/
+!packages/build/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## StyleCop
+StyleCopReport.xml
+
+## Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+## Entity Framework
+migrations/
+
+## Azure Functions
+local.settings.json
+
+## Local environment
+*.local
+appsettings.Development.json
+appsettings.Local.json
+
+## Logs
+logs/
+*.log
+
+## Published output
+publish/
+
+# =====================================
+# Angular / Node.js / TypeScript
+# =====================================
+
+## Dependencies
+node_modules/
+bower_components/
+
+## Build output
+dist/
+tmp/
+out-tsc/
+bazel-out/
+
+## Angular cache
+.angular/
+
+## IDEs and editors
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+## Misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+## System Files
+.DS_Store
+Thumbs.db
+
+## Angular CLI
+.angular/cache/
+
+## Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+## TypeScript
+*.js.map
+*.d.ts
+!src/typings.d.ts
+
+## Testing
+/coverage/
+/.nyc_output
+
+## e2e
+/e2e/*.js
+/e2e/*.map
+
+## PWA
+ngsw.json
+
+## SSR
+dist-server/
+
+# =====================================
+# Common / Shared
+# =====================================
+
+## OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*~
+
+## Secrets and credentials
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+## Docker
+docker-compose.override.yml
+
+## Terraform / IaC
+.terraform/
+*.tfstate
+*.tfstate.*
+
+## JetBrains
+*.iml
+*.ipr
+*.iws
+.idea/
+
+## VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

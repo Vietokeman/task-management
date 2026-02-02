@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Domain</RootNamespace>
+  </PropertyGroup>
+
+  <!--
+  ================================================
+  DOMAIN LAYER PROJECT
+  ================================================
+  PURPOSE:
+  - Core business logic and entities
+  - NO external dependencies (pure C#)
+  - Contains: Entities, Value Objects, Events, Repository Interfaces
+  
+  DEPENDENCY RULE:
+  - Domain has ZERO references to other projects
+  - Domain has NO NuGet packages for external services
+  ================================================
+  -->
+
+</Project>

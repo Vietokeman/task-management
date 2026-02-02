@@ -1,0 +1,24 @@
+// ================================================
+// Features Layer - Feature Structure
+// ================================================
+// PURPOSE:
+// Contains all feature modules organized by domain.
+// Each feature follows Clean Architecture internally.
+//
+// FEATURE STRUCTURE:
+// features/
+//   [feature-name]/
+//     domain/          # Domain entities, value objects
+//     application/     # Use cases, state management
+//     infrastructure/  # API services, external integrations
+//     presentation/    # Components, pages, UI
+//     [feature].routes.ts
+//
+// EXAMPLE FEATURES:
+// - auth (login, register, password reset)
+// - dashboard (overview, widgets)
+// - tasks (task CRUD, assignments)
+// - users (user management)
+// ================================================
+
+// Create feature folders following the structure above.

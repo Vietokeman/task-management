@@ -1,0 +1,30 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  
+  "ConnectionStrings": {
+    "DefaultConnection": "YOUR_CONNECTION_STRING_HERE"
+  },
+  
+  "JwtSettings": {
+    "Secret": "YOUR_JWT_SECRET_HERE_MINIMUM_32_CHARACTERS",
+    "Issuer": "TaskManagementSystem",
+    "Audience": "TaskManagementSystem",
+    "AccessTokenExpirationMinutes": 60,
+    "RefreshTokenExpirationDays": 7
+  },
+  
+  "EmailSettings": {
+    "SmtpHost": "smtp.example.com",
+    "SmtpPort": 587,
+    "Username": "",
+    "Password": "",
+    "FromEmail": "noreply@example.com",
+    "FromName": "Task Management System"
+  }
+}

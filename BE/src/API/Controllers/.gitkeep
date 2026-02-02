@@ -1,0 +1,26 @@
+// ================================================
+// API Layer - Controllers Folder
+// ================================================
+// PURPOSE:
+// REST API endpoint controllers.
+// Controllers are THIN - only dispatch to MediatR.
+// Group by feature/domain context.
+//
+// CONTROLLER RESPONSIBILITIES:
+// 1. Receive HTTP request
+// 2. Create Command/Query
+// 3. Send via MediatR
+// 4. Map Result to HTTP response
+//
+// EXAMPLE:
+// [HttpPost]
+// public async Task<IActionResult> Create([FromBody] CreateOrderRequest request)
+// {
+//     var command = new CreateOrderCommand(request.CustomerName);
+//     var result = await _sender.Send(command);
+//     return result.IsSuccess ? Ok(result.Value) : BadRequest(result.Errors);
+// }
+// ================================================
+
+// Create controller classes in this folder.
+// Each controller should inherit from BaseApiController.

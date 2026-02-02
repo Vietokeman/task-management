@@ -1,0 +1,12 @@
+// ================================================
+// Domain Layer - Domain Events Folder
+// ================================================
+// PURPOSE:
+// Contains domain event classes raised by aggregates.
+// Events represent something significant that happened.
+// Enables loose coupling between bounded contexts.
+// ================================================
+
+// Create domain event classes in this folder.
+// All events should inherit from DomainEvent base class.
+// Example: OrderCreatedEvent.cs, OrderCompletedEvent.cs

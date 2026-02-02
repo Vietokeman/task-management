@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Application</RootNamespace>
+  </PropertyGroup>
+
+  <!--
+  ================================================
+  APPLICATION LAYER PROJECT
+  ================================================
+  PURPOSE:
+  - Business rules and use cases (CQRS handlers)
+  - Orchestrates domain logic
+  - Contains: Commands, Queries, Handlers, DTOs, Validators
+  
+  DEPENDENCIES:
+  - Domain (project reference)
+  - MediatR (CQRS pattern)
+  - FluentValidation (input validation)
+  - AutoMapper (object mapping)
+  ================================================
+  -->
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Add these packages when implementing:
+    <PackageReference Include="MediatR" Version="12.*" />
+    <PackageReference Include="FluentValidation" Version="11.*" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.*" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.*" />
+    -->
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+// ================================================
+// Feature Template - Infrastructure Layer
+// ================================================
+// PURPOSE:
+// External integrations, API services, storage.
+// Implements application layer interfaces.
+// Contains HTTP services for backend communication.
+//
+// CONTENTS:
+// - services/: API services (HTTP calls)
+// - adapters/: External service adapters
+// ================================================
+
+// Create infrastructure services in this folder.
