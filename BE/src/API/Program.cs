@@ -1,69 +1,35 @@
-// ================================================
-// API Layer - Application Entry Point
-// ================================================
-// PURPOSE:
-// ASP.NET Core application startup.
-// Configures services, middleware, and endpoints.
-// Composition root for dependency injection.
-// ================================================
+using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ================================================
-// SERVICE REGISTRATION
-// ================================================
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-// Add Application layer services
-// builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
-// Add Infrastructure layer services
-// builder.Services.AddInfrastructureServices(builder.Configuration);
-
-// Add API layer services
-// builder.Services.AddControllers();
-// builder.Services.AddEndpointsApiExplorer();
-// builder.Services.AddSwaggerGen();
-
-// Add Authentication & Authorization
-// builder.Services.AddAuthentication(...);
-// builder.Services.AddAuthorization();
-
-// Add CORS
-// builder.Services.AddCors(...);
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins(builder.Configuration["AllowedOrigins"]?.Split(',') ?? Array.Empty<string>())
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+});
 
 var app = builder.Build();
 
-// ================================================
-// MIDDLEWARE PIPELINE
-// ================================================
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-// Exception handling middleware (first in pipeline)
-// app.UseMiddleware<ExceptionHandlingMiddleware>();
-
-// Swagger (development only)
-// if (app.Environment.IsDevelopment())
-// {
-//     app.UseSwagger();
-//     app.UseSwaggerUI();
-// }
-
-// HTTPS redirection
-// app.UseHttpsRedirection();
-
-// CORS
-// app.UseCors();
-
-// Authentication & Authorization
-// app.UseAuthentication();
-// app.UseAuthorization();
-
-// Request logging middleware
-// app.UseMiddleware<RequestLoggingMiddleware>();
-
-// Map controllers
-// app.MapControllers();
-
-// Health checks
-// app.MapHealthChecks("/health");
+app.UseHttpsRedirection();
+app.UseCors();
+app.UseAuthorization();
+app.MapControllers();
 
 app.Run();

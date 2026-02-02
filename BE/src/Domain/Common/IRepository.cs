@@ -1,19 +1,10 @@
-// ================================================
-// Domain Layer - Generic Repository Interface
-// ================================================
-// PURPOSE:
-// Generic repository contract for aggregate roots.
-// Defines standard CRUD operations.
-// Implementations reside in Infrastructure layer.
-// ================================================
-
 namespace Domain.Common;
 
-/// <summary>
-/// Generic repository interface for aggregate root entities.
-/// </summary>
-/// <typeparam name="T">Entity type that implements IAggregateRoot</typeparam>
 public interface IRepository<T> where T : class, IAggregateRoot
 {
-    // Implementation: Add GetByIdAsync, AddAsync, Update, Delete methods
+    Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+    Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task<T> AddAsync(T entity, CancellationToken cancellationToken = default);
+    void Update(T entity);
+    void Delete(T entity);
 }

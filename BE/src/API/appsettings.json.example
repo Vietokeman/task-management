@@ -1,30 +1,58 @@
 {
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=TaskManagementSystem;Username=postgres;Password=0977452762Viet;Include Error Detail=true"
+  },
   "Logging": {
     "LogLevel": {
       "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
+      "Microsoft.AspNetCore": "Warning",
+      "Microsoft.EntityFrameworkCore.Database.Command": "Warning"
     }
   },
   "AllowedHosts": "*",
-  
-  "ConnectionStrings": {
-    "DefaultConnection": "YOUR_CONNECTION_STRING_HERE"
+  "JwtTokenSettings": {
+    "Key": "bXlfc2VjdXJlX2p3dF9rZXlfMTI4IQ==",
+    "Issuer": "https://taskmanagement.stemhouse.com/",
+    "ExpireInHours": "24"
   },
-  
-  "JwtSettings": {
-    "Secret": "YOUR_JWT_SECRET_HERE_MINIMUM_32_CHARACTERS",
-    "Issuer": "TaskManagementSystem",
-    "Audience": "TaskManagementSystem",
-    "AccessTokenExpirationMinutes": 60,
-    "RefreshTokenExpirationDays": 7
+  "AllowedOrigins": "http://localhost:3000,http://localhost:4200,https://localhost:3000,https://localhost:4200",
+  "MediaSettings": {
+    "AllowImageFileTypes": "image/png,image/jpeg,image/gif,image/bmp,image/webp,image/svg+xml",
+    "ImagePath": "media",
+    "ImageUrl": "/images/no-image.png"
   },
-  
-  "EmailSettings": {
-    "SmtpHost": "smtp.example.com",
-    "SmtpPort": 587,
-    "Username": "",
-    "Password": "",
-    "FromEmail": "noreply@example.com",
-    "FromName": "Task Management System"
-  }
+  "Serilog": {
+    "Using": ["Serilog.Sinks.Console", "Serilog.Sinks.File"],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "System": "Warning"
+      }
+    },
+    "WriteTo": [
+      { "Name": "Console" },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "Logs/log-.txt",
+          "rollingInterval": "Day",
+          "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}"
+        }
+      }
+    ],
+    "Enrich": ["FromLogContext", "WithMachineName", "WithThreadId"],
+    "Properties": {
+      "Application": "TaskManagement.API"
+    }
+  },
+  "Repository": {
+    "Provider": "PostgreSQL"
+  },
+  "Kestrel": {
+    "Endpoints": {
+      "Http": {
+        "Url": "http://localhost:5000"
+      }
+    }
 }

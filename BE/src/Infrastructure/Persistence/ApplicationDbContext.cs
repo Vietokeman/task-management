@@ -1,22 +1,19 @@
-// ================================================
-// Infrastructure Layer - Application DbContext
-// ================================================
-// PURPOSE:
-// Entity Framework Core DbContext implementation.
-// Defines DbSets for all entities.
-// Configures entity mappings via IEntityTypeConfiguration.
-// ================================================
+using Microsoft.EntityFrameworkCore;
+using TaskEntity = Domain.Entities.Task;
 
 namespace Infrastructure.Persistence;
 
-/// <summary>
-/// Entity Framework Core database context.
-/// </summary>
-public class ApplicationDbContext
+public class ApplicationDbContext : DbContext
 {
-    // Implementation: 
-    // - Inherit from DbContext
-    // - Define DbSet<Entity> properties
-    // - Override OnModelCreating for configurations
-    // - Implement IUnitOfWork
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+    }
+
+    public DbSet<TaskEntity> Tasks => Set<TaskEntity>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+    }
 }

@@ -1,21 +1,16 @@
 {
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=TaskManagementSystem_Dev;Username=postgres;Password=0977452762Viet;Include Error Detail=true"
+  },
   "Logging": {
     "LogLevel": {
       "Default": "Debug",
       "Microsoft.AspNetCore": "Information",
-      "Microsoft.EntityFrameworkCore": "Warning"
+      "Microsoft.EntityFrameworkCore": "Information"
     }
   },
-  
-  "ConnectionStrings": {
-    "DefaultConnection": "Host=localhost;Database=TaskManagement_Dev;Username=postgres;Password=postgres"
-  },
-  
-  "JwtSettings": {
-    "Secret": "DEVELOPMENT_SECRET_KEY_CHANGE_IN_PRODUCTION_MINIMUM_32_CHARS",
-    "Issuer": "TaskManagementSystem-Dev",
-    "Audience": "TaskManagementSystem-Dev",
-    "AccessTokenExpirationMinutes": 120,
-    "RefreshTokenExpirationDays": 30
-  }
+  "JwtTokenSettings": {
+    "Key": "bXlfc2VjdXJlX2p3dF9rZXlfMTI4IQ==",
+    "Issuer": "https://taskmanagement.stemhouse.com/",
+    "ExpireInHours": "48"
 }

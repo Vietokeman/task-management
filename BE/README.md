@@ -50,12 +50,12 @@ BE/
 
 ## 🏗️ Architecture Layers
 
-| Layer | Responsibility | Dependencies |
-|-------|---------------|--------------|
-| **Domain** | Core business logic, entities | None |
-| **Application** | Use cases, CQRS handlers | Domain |
-| **Infrastructure** | Database, external services | Domain, Application |
-| **API** | HTTP endpoints, middleware | Application, Infrastructure |
+| Layer              | Responsibility                | Dependencies                |
+| ------------------ | ----------------------------- | --------------------------- |
+| **Domain**         | Core business logic, entities | None                        |
+| **Application**    | Use cases, CQRS handlers      | Domain                      |
+| **Infrastructure** | Database, external services   | Domain, Application         |
+| **API**            | HTTP endpoints, middleware    | Application, Infrastructure |
 
 ---
 
