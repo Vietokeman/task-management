@@ -1,19 +1,36 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { tap } from "rxjs/operators";
-import { ApiClient, LoginRequest, RegisterRequest, AuthResponse } from "../../services/generated/api.client";
+import {
+  ApiClient,
+  LoginRequest,
+  RegisterRequest,
+  AuthResponse,
+} from "../../services/generated/api.client";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>(
+    this.hasToken(),
+  );
   public isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
   constructor(private apiClient: ApiClient) {}
 
-  register(email: string, password: string, firstName: string, lastName: string): Observable<AuthResponse> {
-    return this.apiClient.authRegister({ email, password, firstName, lastName });
+  register(
+    email: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+  ): Observable<AuthResponse> {
+    return this.apiClient.authRegister({
+      email,
+      password,
+      firstName,
+      lastName,
+    });
   }
 
   login(email: string, password: string): Observable<AuthResponse> {
@@ -23,7 +40,7 @@ export class AuthService {
           this.setTokens(response.accessToken, response.refreshToken || "");
           this.isAuthenticatedSubject.next(true);
         }
-      })
+      }),
     );
   }
 
@@ -33,7 +50,7 @@ export class AuthService {
         if (response.success && response.accessToken) {
           this.setTokens(response.accessToken, response.refreshToken || "");
         }
-      })
+      }),
     );
   }
 
@@ -42,7 +59,7 @@ export class AuthService {
       tap(() => {
         this.clearTokens();
         this.isAuthenticatedSubject.next(false);
-      })
+      }),
     );
   }
 
@@ -72,4 +89,3 @@ export class AuthService {
     return localStorage.getItem("refresh_token");
   }
 }
-

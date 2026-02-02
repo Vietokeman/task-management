@@ -1,73 +1,86 @@
-using Domain.Entities;
-using Infrastructure.Persistence;
+using Application.Common.Interfaces;
+using Application.Features.Tasks;
 using TaskEntity = Domain.Entities.Task;
 
 namespace Infrastructure.Services;
 
-public class TaskService
+public class TaskService : ITaskService
 {
-    private readonly ApplicationDbContext _context;
+    private readonly ITaskRepository _taskRepository;
 
-    public TaskService(ApplicationDbContext context)
+    public TaskService(ITaskRepository taskRepository)
     {
-        _context = context;
+        _taskRepository = taskRepository;
     }
 
-    public async System.Threading.Tasks.Task<List<TaskEntity>> GetAllTasksAsync()
+    public async Task<IEnumerable<TaskDto>> GetAllTasksAsync()
     {
-        return await System.Threading.Tasks.Task.FromResult(_context.Tasks.ToList());
+        var tasks = await _taskRepository.GetAllAsync();
+        return tasks.Select(MapToDto);
     }
 
-    public async System.Threading.Tasks.Task<TaskEntity?> GetTaskByIdAsync(Guid id)
+    public async Task<TaskDto?> GetTaskByIdAsync(Guid id)
     {
-        return await System.Threading.Tasks.Task.FromResult(_context.Tasks.FirstOrDefault(t => t.Id == id));
+        var task = await _taskRepository.GetByIdAsync(id);
+        return task != null ? MapToDto(task) : null;
     }
 
-    public async System.Threading.Tasks.Task<TaskEntity> CreateTaskAsync(string title, string? description, string status)
+    public async Task<TaskDto> CreateTaskAsync(CreateTaskRequest request)
     {
-        if (string.IsNullOrWhiteSpace(title))
+        if (string.IsNullOrWhiteSpace(request.Title))
             throw new ArgumentException("Title is required");
 
         var task = new TaskEntity
         {
             Id = Guid.NewGuid(),
-            Title = title,
-            Description = description,
-            Status = status,
+            Title = request.Title,
+            Description = request.Description,
+            Status = request.Status ?? "Todo",
             CreatedDate = DateTime.UtcNow
         };
 
-        _context.Tasks.Add(task);
-        await _context.SaveChangesAsync();
-        return task;
+        var created = await _taskRepository.AddAsync(task);
+        return MapToDto(created);
     }
 
-    public async System.Threading.Tasks.Task<TaskEntity?> UpdateTaskAsync(Guid id, string? title, string? description, string? status)
+    public async Task<TaskDto?> UpdateTaskAsync(Guid id, UpdateTaskRequest request)
     {
-        var task = _context.Tasks.FirstOrDefault(t => t.Id == id);
-        if (task == null)
+        var existing = await _taskRepository.GetByIdAsync(id);
+        if (existing == null)
             return null;
 
-        if (string.IsNullOrWhiteSpace(title))
-            throw new ArgumentException("Title is required");
+        if (!string.IsNullOrWhiteSpace(request.Title))
+            existing.Title = request.Title;
+        
+        if (request.Description != null)
+            existing.Description = request.Description;
+        
+        if (!string.IsNullOrWhiteSpace(request.Status))
+            existing.Status = request.Status;
 
-        task.Title = title ?? task.Title;
-        task.Description = description ?? task.Description;
-        task.Status = status ?? task.Status;
-
-        _context.Tasks.Update(task);
-        await _context.SaveChangesAsync();
-        return task;
+        _taskRepository.Update(existing);
+        return MapToDto(existing);
     }
 
-    public async System.Threading.Tasks.Task<bool> DeleteTaskAsync(Guid id)
+    public async Task<bool> DeleteTaskAsync(Guid id)
     {
-        var task = _context.Tasks.FirstOrDefault(t => t.Id == id);
+        var task = await _taskRepository.GetByIdAsync(id);
         if (task == null)
             return false;
 
-        _context.Tasks.Remove(task);
-        await _context.SaveChangesAsync();
+        _taskRepository.Delete(task);
         return true;
+    }
+
+    private static TaskDto MapToDto(TaskEntity task)
+    {
+        return new TaskDto
+        {
+            Id = task.Id,
+            Title = task.Title,
+            Description = task.Description,
+            Status = task.Status,
+            CreatedDate = task.CreatedDate
+        };
     }
 }

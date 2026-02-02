@@ -32,7 +32,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
         authService.clearTokens();
       }
       return throwError(() => error);
-    })
+    }),
   );
 };
-

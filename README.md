@@ -81,34 +81,36 @@ TASK_MANAGEMENT_SYSTEM_STEMHOUSE/
 
 ## 🛠️ Technology Stack
 
-| Layer | Backend | Frontend |
-|-------|---------|----------|
-| **Framework** | .NET 8 / ASP.NET Core | Angular 18 |
-| **Language** | C# 12 | TypeScript 5.4 |
-| **Database** | PostgreSQL + EF Core 8 | - |
-| **State** | - | Signals / RxJS |
-| **Pattern** | CQRS + MediatR | Facades + Stores |
-| **Validation** | FluentValidation | Reactive Forms |
+| Layer          | Backend                | Frontend         |
+| -------------- | ---------------------- | ---------------- |
+| **Framework**  | .NET 8 / ASP.NET Core  | Angular 18       |
+| **Language**   | C# 12                  | TypeScript 5.4   |
+| **Database**   | PostgreSQL + EF Core 8 | -                |
+| **State**      | -                      | Signals / RxJS   |
+| **Pattern**    | CQRS + MediatR         | Facades + Stores |
+| **Validation** | FluentValidation       | Reactive Forms   |
 
 ---
 
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - .NET 8 SDK
 - Node.js 20+ & npm
 - Docker (optional, for database)
 
 ### Backend
+
 ```bash
 cd BE
 dotnet restore
-docker-compose up -d postgres
 dotnet run --project src/API
 # API: http://localhost:5000/swagger
 ```
 
 ### Frontend
+
 ```bash
 cd FE
 npm install
@@ -121,16 +123,19 @@ npm start
 ## 📋 Key Principles
 
 ### Clean Architecture Rules
+
 1. **Independence**: Business logic independent of frameworks, UI, database
 2. **Testability**: Business rules can be tested without external elements
 3. **Dependency Inversion**: High-level modules don't depend on low-level modules
 
 ### CQRS Pattern (Backend)
+
 - **Commands**: Write operations that modify state
 - **Queries**: Read operations that return data
 - **Handlers**: Execute commands/queries via MediatR
 
 ### Feature-Based Structure (Frontend)
+
 - Each feature is self-contained with its own layers
 - Lazy-loaded for performance
 - Clear boundaries between features

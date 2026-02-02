@@ -4,7 +4,12 @@
 
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { ApiClient, TaskDto, CreateTaskRequest, UpdateTaskRequest } from "../../../../services/generated/api.client";
+import {
+  ApiClient,
+  TaskDto,
+  CreateTaskRequest,
+  UpdateTaskRequest,
+} from "../../../../services/generated/api.client";
 
 @Injectable({
   providedIn: "root",
@@ -32,4 +37,3 @@ export class TaskService {
     return this.apiClient.tasksDelete(id);
   }
 }
-

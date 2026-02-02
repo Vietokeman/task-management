@@ -12,7 +12,7 @@ export const TASK_ROUTES: Routes = [
         path: "",
         loadComponent: () =>
           import("./presentation/pages/task-list.component").then(
-            (m) => m.TaskListComponent
+            (m) => m.TaskListComponent,
           ),
       },
     ],

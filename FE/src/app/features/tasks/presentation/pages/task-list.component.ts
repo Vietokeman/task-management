@@ -12,17 +12,23 @@ import { AuthService } from "../../../../core/services/auth.service";
   template: `
     <div class="flex min-h-screen bg-white">
       <!-- Sidebar -->
-      <aside class="w-64 border-r border-gray-200 bg-white sticky top-0 h-screen flex flex-col">
+      <aside
+        class="w-64 border-r border-gray-200 bg-white sticky top-0 h-screen flex flex-col"
+      >
         <div class="p-6">
           <div class="flex items-center gap-3 mb-8">
-            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+            <div
+              class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center"
+            >
               <span class="text-xl font-black text-white">✓</span>
             </div>
             <span class="text-xl font-black text-gray-900">Tasks</span>
           </div>
 
           <nav class="space-y-1">
-            <div class="px-4 py-3 rounded-full hover:bg-gray-100 cursor-pointer transition text-base font-semibold flex items-center gap-3 text-gray-900">
+            <div
+              class="px-4 py-3 rounded-full hover:bg-gray-100 cursor-pointer transition text-base font-semibold flex items-center gap-3 text-gray-900"
+            >
               <span class="text-xl">📋</span>
               <span>My Tasks</span>
             </div>
@@ -42,7 +48,9 @@ import { AuthService } from "../../../../core/services/auth.service";
       <!-- Main Content -->
       <main class="flex-1 max-w-4xl mx-auto border-x border-gray-200">
         <!-- Header -->
-        <div class="sticky top-0 backdrop-blur-md bg-white/90 border-b border-gray-200 px-6 py-4 z-10">
+        <div
+          class="sticky top-0 backdrop-blur-md bg-white/90 border-b border-gray-200 px-6 py-4 z-10"
+        >
           <h1 class="text-xl font-black text-gray-900">My Tasks</h1>
         </div>
 
@@ -58,12 +66,18 @@ import { AuthService } from "../../../../core/services/auth.service";
         </div>
 
         <!-- Create/Edit Form -->
-        <div *ngIf="showCreateForm || editingTask" class="border-b border-gray-200 p-6 bg-gray-50">
+        <div
+          *ngIf="showCreateForm || editingTask"
+          class="border-b border-gray-200 p-6 bg-gray-50"
+        >
           <h3 class="text-lg font-bold text-gray-900 mb-4">
-            {{ editingTask ? 'Edit Task' : 'Create New Task' }}
+            {{ editingTask ? "Edit Task" : "Create New Task" }}
           </h3>
-          
-          <form (ngSubmit)="editingTask ? updateTask() : addTask()" class="space-y-4">
+
+          <form
+            (ngSubmit)="editingTask ? updateTask() : addTask()"
+            class="space-y-4"
+          >
             <div>
               <input
                 *ngIf="!editingTask"
@@ -82,7 +96,7 @@ import { AuthService } from "../../../../core/services/auth.service";
                 class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
               />
             </div>
-            
+
             <div>
               <textarea
                 *ngIf="!editingTask"
@@ -113,14 +127,25 @@ import { AuthService } from "../../../../core/services/auth.service";
                 <option value="Doing">⚡ Doing</option>
                 <option value="Done">✅ Done</option>
               </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+              <div
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+              >
+                <svg
+                  class="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  />
                 </svg>
               </div>
             </div>
 
-            <div *ngIf="error" class="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+            <div
+              *ngIf="error"
+              class="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm"
+            >
               {{ error }}
             </div>
 
@@ -132,7 +157,7 @@ import { AuthService } from "../../../../core/services/auth.service";
               >
                 Cancel
               </button>
-              
+
               <button
                 type="submit"
                 class="px-6 py-2 bg-blue-500 text-white font-bold rounded-full hover:bg-blue-600 transition text-sm"
@@ -148,20 +173,47 @@ import { AuthService } from "../../../../core/services/auth.service";
           <table class="w-full">
             <thead class="bg-gray-50 border-b border-gray-200">
               <tr>
-                <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Task</th>
-                <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Description</th>
-                <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Status</th>
-                <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Created</th>
-                <th class="px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">Actions</th>
+                <th
+                  class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
+                >
+                  Task
+                </th>
+                <th
+                  class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
+                >
+                  Description
+                </th>
+                <th
+                  class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
+                >
+                  Status
+                </th>
+                <th
+                  class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
+                >
+                  Created
+                </th>
+                <th
+                  class="px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider"
+                >
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-              <tr *ngFor="let task of tasks" class="hover:bg-gray-50 transition">
+              <tr
+                *ngFor="let task of tasks"
+                class="hover:bg-gray-50 transition"
+              >
                 <td class="px-6 py-4">
-                  <h3 class="text-sm font-semibold text-gray-900">{{ task.title }}</h3>
+                  <h3 class="text-sm font-semibold text-gray-900">
+                    {{ task.title }}
+                  </h3>
                 </td>
                 <td class="px-6 py-4">
-                  <p class="text-sm text-gray-500">{{ task.description || '-' }}</p>
+                  <p class="text-sm text-gray-500">
+                    {{ task.description || "-" }}
+                  </p>
                 </td>
                 <td class="px-6 py-4">
                   <div class="relative inline-block">
@@ -170,18 +222,29 @@ import { AuthService } from "../../../../core/services/auth.service";
                       (change)="updateTaskStatus(task, $event)"
                       class="appearance-none px-3 py-1.5 pr-8 rounded-full text-xs font-semibold cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-200"
                       [ngClass]="{
-                        'bg-blue-100 text-blue-700 border border-blue-200': task.status === 'Todo',
-                        'bg-yellow-100 text-yellow-700 border border-yellow-200': task.status === 'Doing',
-                        'bg-green-100 text-green-700 border border-green-200': task.status === 'Done'
+                        'bg-blue-100 text-blue-700 border border-blue-200':
+                          task.status === 'Todo',
+                        'bg-yellow-100 text-yellow-700 border border-yellow-200':
+                          task.status === 'Doing',
+                        'bg-green-100 text-green-700 border border-green-200':
+                          task.status === 'Done',
                       }"
                     >
                       <option value="Todo">📝 Todo</option>
                       <option value="Doing">⚡ Doing</option>
                       <option value="Done">✅ Done</option>
                     </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
-                      <svg class="fill-current h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                    <div
+                      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2"
+                    >
+                      <svg
+                        class="fill-current h-3 w-3"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -244,7 +307,7 @@ export class TaskListComponent implements OnInit {
   constructor(
     private taskService: TaskService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -283,7 +346,7 @@ export class TaskListComponent implements OnInit {
     this.editingTask = { ...task };
     this.showCreateForm = false;
     this.error = "";
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   addTask(): void {
@@ -311,25 +374,29 @@ export class TaskListComponent implements OnInit {
       return;
     }
 
-    this.taskService.updateTask(this.editingTask.id, this.editingTask).subscribe({
-      next: (updated: any) => {
-        const index = this.tasks.findIndex((t) => t.id === this.editingTask.id);
-        if (index > -1) {
-          this.tasks[index] = updated;
-        }
-        this.editingTask = null;
-        this.error = "";
-      },
-      error: (err: any) => {
-        this.error = "Failed to update task";
-      },
-    });
+    this.taskService
+      .updateTask(this.editingTask.id, this.editingTask)
+      .subscribe({
+        next: (updated: any) => {
+          const index = this.tasks.findIndex(
+            (t) => t.id === this.editingTask.id,
+          );
+          if (index > -1) {
+            this.tasks[index] = updated;
+          }
+          this.editingTask = null;
+          this.error = "";
+        },
+        error: (err: any) => {
+          this.error = "Failed to update task";
+        },
+      });
   }
 
   updateTaskStatus(task: any, event: any): void {
     const newStatus = event.target.value;
     const updatedTask = { ...task, status: newStatus };
-    
+
     this.taskService.updateTask(task.id, updatedTask).subscribe({
       next: (updated: any) => {
         const index = this.tasks.findIndex((t) => t.id === task.id);

@@ -79,7 +79,10 @@ export class ApiClient {
   }
 
   authRefreshToken(): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.baseUrl}/auth/refresh-token`, {});
+    return this.http.post<AuthResponse>(
+      `${this.baseUrl}/auth/refresh-token`,
+      {},
+    );
   }
 
   authLogout(): Observable<any> {

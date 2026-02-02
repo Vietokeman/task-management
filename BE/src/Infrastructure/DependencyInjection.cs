@@ -1,5 +1,7 @@
+using Application.Common.Interfaces;
 using Infrastructure.Identity;
 using Infrastructure.Persistence;
+using Infrastructure.Persistence.Repositories;
 using Infrastructure.Services;
 using Infrastructure.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -35,8 +37,13 @@ public static class DependencyInjection
             .AddDefaultTokenProviders();
 
         services.AddScoped<IdentityService>();
-
-        services.AddScoped<TaskService>();
+        
+        // Register repositories
+        services.AddScoped<ITaskRepository, TaskRepository>();
+        
+        // Register services
+        services.AddScoped<ITaskService, TaskService>();
+        services.AddScoped<IAuthService, AuthService>();
 
         var key = Encoding.ASCII.GetBytes(jwtSettings.Key);
         services.AddAuthentication(options =>

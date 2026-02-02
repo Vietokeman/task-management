@@ -1,10 +1,11 @@
 using System.Security.Claims;
+using Application.Common.Interfaces;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Http;
 
 namespace Infrastructure.Services;
 
-public class AuthService
+public class AuthService : IAuthService
 {
     private readonly IdentityService _identityService;
     private readonly TokenService _tokenService;
@@ -191,20 +192,4 @@ public class AuthService
                 Expires = refreshTokenExpiresAt
             });
     }
-}
-
-public class AuthResponse
-{
-    public bool Success { get; set; }
-    public string Message { get; set; } = string.Empty;
-    public string? AccessToken { get; set; }
-    public DateTime AccessTokenExpiresAt { get; set; }
-    public int AccessTokenExpiresIn { get; set; }
-    public string? RefreshToken { get; set; }
-    public DateTime RefreshTokenExpiresAt { get; set; }
-    public int RefreshTokenExpiresIn { get; set; }
-    public string? UserId { get; set; }
-    public string? Email { get; set; }
-    public string? FirstName { get; set; }
-    public string? LastName { get; set; }
 }
