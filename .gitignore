@@ -89,6 +89,7 @@ local.settings.json
 
 ## Local environment
 *.local
+appsettings.json
 appsettings.Development.json
 appsettings.Local.json
 
