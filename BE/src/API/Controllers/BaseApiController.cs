@@ -15,7 +15,7 @@ namespace API.Controllers;
 /// Base controller with common functionality.
 /// </summary>
 [ApiController]
-[Route("api/v{version:apiVersion}/[controller]")]
+[Route("api/[controller]")]
 public abstract class BaseApiController : ControllerBase
 {
     // Implementation:

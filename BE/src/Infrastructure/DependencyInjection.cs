@@ -1,5 +1,6 @@
 using Infrastructure.Identity;
 using Infrastructure.Persistence;
+using Infrastructure.Services;
 using Infrastructure.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -23,23 +24,20 @@ public static class DependencyInjection
             options.UseNpgsql(connectionString,
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
-        // JWT Settings
         var jwtSettings = new JwtSettings();
         configuration.GetSection("JwtTokenSettings").Bind(jwtSettings);
         services.AddSingleton(jwtSettings);
 
-        // Token Service
         services.AddScoped<TokenService>();
 
-        // Identity
         services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
-        // Identity Service
         services.AddScoped<IdentityService>();
 
-        // JWT Authentication
+        services.AddScoped<TaskService>();
+
         var key = Encoding.ASCII.GetBytes(jwtSettings.Key);
         services.AddAuthentication(options =>
         {
