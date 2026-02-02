@@ -4,16 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 
-# ================================================
-# TASK MANAGEMENT SYSTEM - CLEAN ARCHITECTURE
-# ================================================
-# Solution structure follows Clean Architecture layers:
-# - Domain: Core business logic (no dependencies)
-# - Application: Use cases and business rules (CQRS)
-# - Infrastructure: External concerns (DB, Identity)
-# - API: Presentation layer (Controllers, Middleware)
-# ================================================
-
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
 EndProject
 

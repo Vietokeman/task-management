@@ -1,19 +1,12 @@
-// ================================================
-// Infrastructure Layer - Identity User
-// ================================================
-// PURPOSE:
-// Custom ASP.NET Core Identity user entity.
-// Extends IdentityUser with domain-specific properties.
-// Used for authentication and authorization.
-// ================================================
+using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Identity;
 
-/// <summary>
-/// Application-specific Identity user.
-/// </summary>
-public class ApplicationUser
+public class ApplicationUser : IdentityUser<Guid>
 {
-    // Implementation: Extend IdentityUser<Guid>
-    // Add custom properties: FirstName, LastName, RefreshTokens, etc.
+    public string? FirstName { get; set; }
+    public string? LastName { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime? UpdatedAt { get; set; }
+    public bool IsActive { get; set; } = true;
 }
