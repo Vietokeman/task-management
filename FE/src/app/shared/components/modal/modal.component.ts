@@ -6,11 +6,11 @@
 // Supports header, body, footer slots.
 // ================================================
 
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-modal',
+  selector: "app-modal",
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
       </div>
     </div>
   `,
-  styles: []
+  styles: [],
 })
 export class ModalComponent {
   // Inputs: isOpen, title

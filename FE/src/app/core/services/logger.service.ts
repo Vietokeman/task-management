@@ -7,10 +7,10 @@
 // Can be configured for production (remote logging).
 // ================================================
 
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class LoggerService {
   // Implementation:

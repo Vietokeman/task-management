@@ -6,11 +6,11 @@
 // Supports different variants, sizes, loading state.
 // ================================================
 
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-button',
+  selector: "app-button",
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
       <ng-content></ng-content>
     </button>
   `,
-  styles: []
+  styles: [],
 })
 export class ButtonComponent {
   // Inputs: variant, size, disabled, loading

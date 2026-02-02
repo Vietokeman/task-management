@@ -6,11 +6,11 @@
 // Supports page size, current page, total items.
 // ================================================
 
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-pagination',
+  selector: "app-pagination",
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
       <ng-content></ng-content>
     </nav>
   `,
-  styles: []
+  styles: [],
 })
 export class PaginationComponent {
   // Inputs: currentPage, pageSize, totalItems

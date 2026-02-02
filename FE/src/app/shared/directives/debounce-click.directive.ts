@@ -6,11 +6,11 @@
 // Useful for form submissions.
 // ================================================
 
-import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
+import { Directive, EventEmitter, HostListener, Output } from "@angular/core";
 
 @Directive({
-  selector: '[appDebounceClick]',
-  standalone: true
+  selector: "[appDebounceClick]",
+  standalone: true,
 })
 export class DebounceClickDirective {
   // Implementation: Debounce click events

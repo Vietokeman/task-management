@@ -6,11 +6,11 @@
 // Supports validation display, labels, hints.
 // ================================================
 
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-input',
+  selector: "app-input",
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
       <ng-content></ng-content>
     </div>
   `,
-  styles: []
+  styles: [],
 })
 export class InputComponent {
   // Inputs: label, placeholder, error, hint

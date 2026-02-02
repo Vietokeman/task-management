@@ -6,18 +6,18 @@
 // Supports different sizes and colors.
 // ================================================
 
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-loading-spinner',
+  selector: "app-loading-spinner",
   standalone: true,
   imports: [CommonModule],
   template: `
     <!-- Loading spinner template -->
     <div class="spinner"></div>
   `,
-  styles: []
+  styles: [],
 })
 export class LoadingSpinnerComponent {
   // Inputs: size, color

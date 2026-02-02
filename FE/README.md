@@ -52,29 +52,32 @@ FE/
 ## 🏗️ Architecture Layers
 
 ### Core Layer
-| Folder | Responsibility |
-|--------|---------------|
-| **services/** | Singleton services (auth, API client, storage) |
-| **guards/** | Route protection (auth, roles) |
-| **interceptors/** | HTTP request/response processing |
-| **models/** | Core interfaces shared across app |
-| **constants/** | Application-wide constants |
+
+| Folder            | Responsibility                                 |
+| ----------------- | ---------------------------------------------- |
+| **services/**     | Singleton services (auth, API client, storage) |
+| **guards/**       | Route protection (auth, roles)                 |
+| **interceptors/** | HTTP request/response processing               |
+| **models/**       | Core interfaces shared across app              |
+| **constants/**    | Application-wide constants                     |
 
 ### Shared Layer
-| Folder | Responsibility |
-|--------|---------------|
-| **components/** | Reusable UI components |
+
+| Folder          | Responsibility            |
+| --------------- | ------------------------- |
+| **components/** | Reusable UI components    |
 | **directives/** | Custom Angular directives |
-| **pipes/** | Custom Angular pipes |
-| **utils/** | Pure utility functions |
+| **pipes/**      | Custom Angular pipes      |
+| **utils/**      | Pure utility functions    |
 
 ### Features Layer (per feature)
-| Folder | Responsibility |
-|--------|---------------|
-| **domain/** | Business entities, value objects |
-| **application/** | Use cases, state management, facades |
-| **infrastructure/** | API services, external integrations |
-| **presentation/** | Pages, components, UI logic |
+
+| Folder              | Responsibility                       |
+| ------------------- | ------------------------------------ |
+| **domain/**         | Business entities, value objects     |
+| **application/**    | Use cases, state management, facades |
+| **infrastructure/** | API services, external integrations  |
+| **presentation/**   | Pages, components, UI logic          |
 
 ---
 

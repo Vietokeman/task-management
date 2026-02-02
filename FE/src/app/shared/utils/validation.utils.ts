@@ -6,7 +6,7 @@
 // Custom validators for reactive forms.
 // ================================================
 
-import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { AbstractControl, ValidatorFn } from "@angular/forms";
 
 // Custom validators
 export const CustomValidators = {

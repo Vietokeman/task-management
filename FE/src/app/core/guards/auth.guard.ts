@@ -7,15 +7,20 @@
 // Uses functional guard pattern (Angular 15+).
 // ================================================
 
-import { inject } from '@angular/core';
-import { Router, CanActivateFn } from '@angular/router';
-// import { AuthService } from '../services/auth.service';
+import { inject } from "@angular/core";
+import { Router, CanActivateFn } from "@angular/router";
+import { AuthService } from "../services/auth.service";
 
 export const authGuard: CanActivateFn = (route, state) => {
-  // Implementation:
-  // - Check if user is authenticated
-  // - Redirect to login if not
-  // - Return true if authenticated
-  
-  return true; // Placeholder
+  const authService = inject(AuthService);
+  const router = inject(Router);
+
+  if (authService.hasToken()) {
+    return true;
+  }
+
+  // Redirect to login if not authenticated
+  router.navigate(["/auth/login"], { queryParams: { returnUrl: state.url } });
+  return false;
 };
+

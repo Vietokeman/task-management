@@ -7,8 +7,8 @@
 // Shows notifications, redirects on 401/403.
 // ================================================
 
-import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
-import { catchError, throwError } from 'rxjs';
+import { HttpInterceptorFn, HttpErrorResponse } from "@angular/common/http";
+import { catchError, throwError } from "rxjs";
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
@@ -18,8 +18,8 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
       // - Handle 403: Show forbidden message
       // - Handle 500: Show generic error
       // - Log error details
-      
+
       return throwError(() => error);
-    })
+    }),
   );
 };

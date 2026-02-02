@@ -6,7 +6,7 @@
 // Single entry point for shared functionality.
 // ================================================
 
-export * from './components';
-export * from './directives';
-export * from './pipes';
-export * from './utils';
+export * from "./components";
+export * from "./directives";
+export * from "./pipes";
+export * from "./utils";

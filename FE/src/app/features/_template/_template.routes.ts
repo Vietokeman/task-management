@@ -6,7 +6,7 @@
 // Lazy-loaded by the main app routes.
 // ================================================
 
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 
 export const FEATURE_ROUTES: Routes = [
   // Define feature routes here
