@@ -1,0 +1,27 @@
+{
+  "runtime": "Net70",
+  "sources": [
+    {
+      "url": "http://localhost:5000/swagger/v1/swagger.json",
+      "output": "src/app/services/generated/api.client.ts",
+      "packageName": "AppModule"
+    }
+  ],
+  "swaggerGenerator": {
+    "fromUrl": {
+      "url": "http://localhost:5000/swagger/v1/swagger.json"
+    }
+  },
+  "codeGenerators": {
+    "openApiToTypeScriptClient": {
+      "className": "ApiClient",
+      "moduleName": "AppModule",
+      "typeScriptVersion": "4.7",
+      "output": "src/app/services/generated/api.client.ts",
+      "generateClientInterfaces": true,
+      "generateClientClasses": true,
+      "generateDtoClasses": true
+    }
+  }
+}
+
